@@ -1,0 +1,35 @@
+---
+title: "Object Analysis"
+publishedAt: "2026-03-10"
+summary: "AI web app that analyzes an uploaded object image for identity, material, condition, and significance, then can download the result as a PDF."
+images:
+  - "/images/projects/object_analysis.png"
+technologies: ["Node.js", "Express.js", "JavaScript", "Google Generative AI", "EJS"]
+liveUrl: "https://object-analysis.vercel.app/"
+link: "https://github.com/raj-patel-dev/Object-Analysis"
+team:
+  - name: "Raj Patel"
+    role: "Full-stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/raj-patel21/"
+---
+
+## Overview
+
+An AI-powered application for uploading an object image and receiving analysis of its identity, material or composition, condition, and historical or functional significance. The Express backend uses Google Generative AI for image analysis.
+
+## Key Features
+
+- **Image upload and analysis**: Accepts an object image (`POST /analyze`) and returns an AI analysis report.
+- **PDF export**: `POST /download` generates an Object Analysis Report with the analysis date, AI result, and uploaded image when available.
+- **Temporary uploads**: Uploaded images are processed for analysis rather than stored as a long-term gallery.
+
+## Technologies Used
+
+- Node.js and Express.js
+- Google Generative AI
+- JavaScript, EJS, Multer, and PDFKit
+
+## Outcome
+
+The project is a focused generative-AI workflow: file upload, image analysis, and PDF report generation.

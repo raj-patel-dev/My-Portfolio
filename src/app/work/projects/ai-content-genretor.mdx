@@ -1,0 +1,39 @@
+---
+title: "AI Content Generator"
+publishedAt: "2026-05-01"
+summary: "Full-stack AI writing app where users enter a prompt and receive generated content, with user accounts, MongoDB, and Stripe billing on an Express API."
+images:
+  - "/images/projects/ai_content-genretor.png"
+technologies: ["React", "JavaScript", "Node.js", "Express", "MongoDB", "Google Gemini", "Stripe"]
+liveUrl: "https://ai-content-generator-raj-82.vercel.app/"
+link: "https://github.com/raj-patel-dev/AI_Content-Genretor"
+team:
+  - name: "Raj Patel"
+    role: "Full-stack Developer"
+    avatar: "/images/avatar.jpg"
+    linkedIn: "https://www.linkedin.com/in/raj-patel21/"
+---
+
+## Overview
+
+An AI-powered web application that generates written content from a user prompt. The React client talks to a Node.js and Express API that calls Google Gemini, stores users in MongoDB, and handles Stripe billing.
+
+## Key Features
+
+- **Prompt-to-content generation**: Users submit a prompt and receive AI-generated writing through the Gemini-backed API.
+- **User accounts**: Cookie-based user routes with MongoDB persistence.
+- **Usage limits and trials**: Scheduled jobs expire trials and reset monthly request counts by subscription plan.
+- **Stripe integration**: Billing endpoints for paid plans alongside a free-tier request quota.
+- **API security**: Gemini API keys stay on the backend via environment variables.
+
+## Technologies Used
+
+- React and JavaScript
+- Node.js and Express.js
+- MongoDB and Mongoose
+- Google Gemini
+- Stripe
+
+## Outcome
+
+The project combines generative AI, REST APIs, database integration, authentication, and payments in a full-stack JavaScript application.
