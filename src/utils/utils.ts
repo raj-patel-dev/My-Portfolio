@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { notFound } from "next/navigation";
 
 type Team = {
   name: string;
@@ -23,22 +24,24 @@ type Metadata = {
   technologies: string[];
 };
 
-import { notFound } from "next/navigation";
+export type ContentKind = "blog" | "work";
 
 function getMDXFiles(dir: string) {
-  if (!fs.existsSync(dir)) {
+  if (!fs.existsSync(/* turbopackIgnore: true */ dir)) {
     notFound();
   }
 
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+  return fs
+    .readdirSync(/* turbopackIgnore: true */ dir)
+    .filter((file) => path.extname(file) === ".mdx");
 }
 
 function readMDXFile(filePath: string) {
-  if (!fs.existsSync(filePath)) {
+  if (!fs.existsSync(/* turbopackIgnore: true */ filePath)) {
     notFound();
   }
 
-  const rawContent = fs.readFileSync(filePath, "utf-8");
+  const rawContent = fs.readFileSync(/* turbopackIgnore: true */ filePath, "utf-8");
   const { data, content } = matter(rawContent);
 
   const metadata: Metadata = {
@@ -72,7 +75,10 @@ function getMDXData(dir: string) {
   });
 }
 
-export function getPosts(customPath = ["", "", "", ""]) {
-  const postsDir = path.join(process.cwd(), ...customPath);
-  return getMDXData(postsDir);
+export function getPosts(kind: ContentKind) {
+  if (kind === "blog") {
+    return getMDXData(path.join(process.cwd(), "src", "app", "blog", "posts"));
+  }
+
+  return getMDXData(path.join(process.cwd(), "src", "app", "work", "projects"));
 }

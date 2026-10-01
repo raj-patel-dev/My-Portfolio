@@ -21,6 +21,14 @@ const nextConfig: NextConfig = {
   sassOptions: {
     silenceDeprecations: ["legacy-js-api"],
   },
+  // MDX paths are built from process.cwd() at request time; include them so
+  // Vercel serverless traces do not miss content files.
+  outputFileTracingIncludes: {
+    "/*": [
+      "./src/app/blog/posts/**/*.mdx",
+      "./src/app/work/projects/**/*.mdx",
+    ],
+  },
 };
 
 export default withMDX(nextConfig);
